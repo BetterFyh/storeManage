@@ -38,6 +38,16 @@ Page({
       url: '/pages/order/list?id=' + e.currentTarget.dataset.id
     })
   },
+  // 超级管理员才能添加管理员
+  addManage(){
+
+  },
+  // 查看所有管理
+  queryManage(){
+    wx.navigateTo({
+      url: '/pages/user/allUser'
+    })
+  },
   // 退出登录
   logout(){
     wx.showModal({
