@@ -77,19 +77,23 @@ Page({
                     icon: 'success',
                     mask: true
                   })
-                  var id = res.data[0]._id
-                  var logo = result.userInfo.avatarUrl
-                  wx.cloud.callFunction({
-                    name: 'updatelogo',
-                    data: {
-                      id: id,
-                      logo: logo,
-                      openid: app.globalData.openid
-                    },
-                    complete: res => {
-                      console.log(res)
-                    }
-                  })
+                  // 第一次登陆才绑定头像和openid
+                  if (!that.data.userInfo.openid){
+                    var id = res.data[0]._id
+                    var logo = result.userInfo.avatarUrl
+                    wx.cloud.callFunction({
+                      name: 'updatelogo',
+                      data: {
+                        id: id,
+                        logo: logo,
+                        openid: app.globalData.openid
+                      },
+                      complete: res => {
+                        console.log(res)
+                      }
+                    })
+                  }
+                  
                   
                   // console.log(this.data.userInfo)
                   // 将用户信息存在本地  保持登录状态
