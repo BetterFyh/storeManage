@@ -30,12 +30,30 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "订单记录列表",
+					"pathName": "pages/order/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "所有管理",
+					"pathName": "pages/user/allUser"
 				}
 			]
 		}

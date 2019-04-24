@@ -1,0 +1,33 @@
+/* miniprogram/pages/order/list.wxss */
+page{
+  background-color: #eee;
+}
+.title{
+  z-index: 2;
+  position: fixed;
+  width: 750rpx;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20rpx 0 0;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+.title::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  /* background-color: transparent; */
+}
+.title view{
+  /* margin-top: 70rpx; */
+  min-width: 25%;
+  padding-bottom: 16rpx;
+}
+.title view.active{
+  color: #09bb07;
+  border-bottom: 2px solid #09bb07; 
+}

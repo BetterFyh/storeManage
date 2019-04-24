@@ -5,3 +5,31 @@
   align-items: center;
   box-sizing: border-box;
 } 
+/* 字体图标库 */
+@font-face {
+  font-family: 'iconfont';  /* project id 1159111 */
+  src: url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.eot');
+  src: url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.svg#iconfont') format('svg');
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 20px;
+    color: #09ba07;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon_func::before{ content: '\e61a'}
+.icon_home::before{ content: '\e6bc'}
+.icon_user::before{ content: '\e65d'}
+.icon_waitReback::before{ content: '\e619'}
+.icon_rebacked::before{ content: '\e635'}
+.icon_out::before{ content: '\e6e4'}
+.icon_record::before{ content: '\e600'}
+.icon_add::before{ content: '\e601'; color: #333; font-size: 18px;}
+.icon_query::before{ content:  '\e61c'; color: #333; font-size: 18px;}
+

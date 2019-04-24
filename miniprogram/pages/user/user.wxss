@@ -1,0 +1,78 @@
+/* miniprogram/pages/user/user.wxss */
+.user-page {
+  position: absolute;
+  background-color: #e9e9e9; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.user{
+  position: relative;
+  height: 400rpx;
+  width: 750rpx;
+  background-color: #232321;
+}
+.user-poster {
+  position: absolute;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  transform: translateX(-50%); 
+  display: block;
+  left: 50%;
+  top: 40rpx;
+}
+.user-name{
+  position: absolute;
+  color: #fff;
+   transform: translateX(-50%); 
+  display: block;
+  left: 50%;
+  top: 240rpx;
+}
+.level{
+  font-size: 12px;
+}
+.record{
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  font-size: 12px;
+  width: 100%;
+}
+.record_item{
+  padding: 30rpx 0 20rpx;
+  text-align: center;
+}
+.record_logo{
+  color: #777;
+  font-size: 25px;
+}
+.record_name{
+  padding: 10rpx 0;
+}
+.func_list{
+  background-color: #fff;
+  width: 750rpx;
+  margin-top: 20rpx;
+  font-size: 16px;
+  color: #333;
+}
+.func_list .item{
+  display: flex;
+  font-size: 16px;
+  color: #333;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #e9e9e9;
+}
+.func_list .iconfont{
+  text-align: center;
+  width: 50rpx;
+}
+.logout{
+  background-color: #f44;
+  color: #fff;
+  width: 660rpx;
+  margin: 40rpx auto;
+}

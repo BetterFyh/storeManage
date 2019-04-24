@@ -2,7 +2,13 @@
   "pages": [
     "pages/home/home",
     "pages/index/index",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/manage/manage",
+    "pages/user/user",
+    "pages/order/list",
+    "pages/order/orderInfo",
+    "pages/user/addUser",
+    "pages/user/allUser"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -10,5 +16,28 @@
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "仓库系统",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#09bb07",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home_select.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/manage/manage",
+        "iconPath": "images/tabbar/func.png",
+        "selectedIconPath": "images/tabbar/func_select.png",
+        "text": "管理"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/tabbar/user.png",
+        "selectedIconPath": "images/tabbar/user_select.png",
+        "text": "我的"
+      }
+    ]
   }
 }

@@ -1,1 +1,68 @@
 /* miniprogram/pages/login/login.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.login {
+  margin: 200rpx 30rpx;
+}
+
+.user {
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+
+.user label {
+  width: 20%;
+  text-align: center;
+  line-height: 90rpx;
+}
+
+.user input {
+  height: 100%;
+  width: 80%;
+  line-height: 90rpx;
+}
+
+.pwd {
+  margin-top: 20rpx;
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+
+.pwd label {
+  width: 20%;
+  text-align: center;
+  line-height: 90rpx;
+}
+
+.pwd input {
+  height: 100%;
+  width: 80%;
+  line-height: 90rpx;
+}
+
+button {
+  margin: 100rpx auto;
+  background: #09ba07;
+  width: 80%;
+  color: #fff;
+}

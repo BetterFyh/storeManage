@@ -1,0 +1,38 @@
+<!--miniprogram/pages/user/user.wxml-->
+<view class='user-page'>
+  <view class='user'>
+    <image class='user-poster' src="{{userInfo.user_logo}}"></image>
+    <view class='user-name'>{{userInfo.user_name}}
+      <text class='level'>{{userInfo.levelInfo}}</text> </view>
+  </view>
+  <view class='record'>
+    <!--订单状态status 1 待归还 2 已归还 3 已下架-->
+    <view class='record_item' bindtap='toOrder' data-id='1'>
+      <view class='record_logo iconfont icon_waitReback'></view>
+      <view class='record_name'>待归还</view>
+    </view>
+    <view class='record_item' bindtap='toOrder' data-id='2'>
+      <view class='record_logo iconfont icon_rebacked'></view>
+      <view class='record_name'>已归还</view>
+    </view>
+    <view class='record_item' bindtap='toOrder' data-id='3'>
+      <view class='record_logo iconfont icon_out'></view>
+      <view class='record_name'>已下架</view>
+    </view>
+    <view class='record_item' bindtap='toOrder' data-id='0'>
+      <view class='record_logo iconfont icon_record'></view>
+      <view class='record_name'>全部记录</view>
+    </view>
+  </view>
+  <view class='func_list'>
+    <view wx:if="{{userInfo.user_level === 999}}" class='item' bindtap='addManage'>
+      <view class='iconfont icon_add'></view>
+      <view>添加管理员</view>
+    </view>
+    <view class='item' bindtap='queryManage'>
+      <view class='iconfont icon_query'></view>
+      <view>所有管理员</view>
+    </view>
+  </view>
+  <button wx:if="{{userInfo.user_name}}" class='logout' bindtap='logout'>退出登录</button>
+</view>

@@ -1,2 +1,16 @@
 <!--miniprogram/pages/login/login.wxml-->
-<text>miniprogram/pages/login/login.wxml</text>
+<view class='page' style="background-image: url('../../images/background.png')">
+  <view class='login'>
+    <form>
+      <view class='user'>
+        <label>账号</label>
+        <input type="text" placeholder="请输入系统管理账号" bindinput='accountInput'></input>
+      </view>
+      <view class='pwd'>
+        <label>密码</label>
+        <input password type="text" placeholder='请输入密码' bindinput='pwdInput'></input>
+      </view>
+      <button bindtap='login' open-type='getUserInfo'>登录</button>
+    </form>
+  </view>
+</view>

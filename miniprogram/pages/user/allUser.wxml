@@ -1,0 +1,6 @@
+<!--miniprogram/pages/user/allUser.wxml-->
+<view wx:for="{{userList}}" class='page' wx:key="index">
+  <view class='logo'>{{item.user_logo}}</view>
+  <view class='name'>{{item.user_name}}</view>
+  <view class='infp'>{{item_levelInfo}}</view>
+</view>

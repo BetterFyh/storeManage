@@ -1,0 +1,29 @@
+<!--miniprogram/pages/order/list.wxml-->
+<view class='page'>
+  <view class='title'>
+    <view class="{{active == 1 ? 'active': ''}}" bindtap='activeId' data-idx='1'>待归还</view>
+    <view class="{{active == 2 ? 'active': ''}}" bindtap='activeId' data-idx='2'>已归还</view>
+    <view class="{{active == 3 ? 'active': ''}}" bindtap='activeId' data-idx='3'>已下架</view>
+    <view class="{{active == 0 ? 'active': ''}}" bindtap='activeId' data-idx='0'>全部</view>
+  </view>
+  <!-- <view class='list'>
+    <view wx:for="{{orderList}}" wx:key="idx" class='order-list'>
+      <view class='order-top'>
+        <view>{{item.goods.goods_title}}</view>
+        <view class='statu' wx:if="{{item.is_pay == 1}}">已支付</view>
+        <view class='statu' wx:if="{{item.is_pay != 1}}">未支付</view>
+      </view>
+      <view class='order-content'>
+        <view class='ticket-content'>
+          <view>{{item.goods.goods_spec}}</view>
+          <view>￥{{item.real_price}}</view>
+        </view>
+        <view wx:if="{{item.type == 1}}"  class='order-date'>门票日期：{{item.date}}</view>
+        <view wx:if="{{item.type == 1}}" class='order-date'>门票信息：{{item.desc || item.goods.number+ '张'}}</view>
+        <view wx:if="{{item.type != 1}}"  class='order-date'>下单时间：{{item.create_at}}</view>
+        <view wx:if="{{item.type != 1}}" class='order-date'>订单信息：{{item.desc || item.goods.number+ '份'}}</view>
+      </view>
+      <view class='order-bottom' bindtap='todetail' data-idx='{{item.order_no}}'><view class='more_btn'>查看详情</view></view>
+    </view>
+  </view> -->
+</view>
