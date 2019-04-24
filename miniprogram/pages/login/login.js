@@ -1,6 +1,5 @@
 // miniprogram/pages/login/login.js
 const app = getApp()
-const db = wx.cloud.database()
 Page({
 
   /**
@@ -9,6 +8,7 @@ Page({
   data: {
     username: 'fyh',
     pwd: '123456',
+    openid: '',
     userInfo: {}
   },
 
@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getOpenid();
   },
   accountInput: function(e) {
     this.setData({
@@ -26,6 +26,21 @@ Page({
   pwdInput: function(e) {
     this.setData({
       pwd: e.detail.value
+    })
+  },
+  // 获取用户openid
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        // console.log('云函数获取到的openid: ', res.result.userInfo.openId)
+        var openId = res.result.userInfo.openId;
+        app.globalData.openid = openId
+        that.setData({
+          openid: openId
+        })
+      }
     })
   },
   login: function() {
@@ -39,6 +54,7 @@ Page({
       })
     }
      else {
+      const db = wx.cloud.database()
       db.collection('user').where({
         user_name: this.data.username,
         user_password: this.data.pwd
@@ -61,23 +77,26 @@ Page({
                     icon: 'success',
                     mask: true
                   })
-                  var id = that.data.userInfo._id
+                  var id = res.data[0]._id
                   var logo = result.userInfo.avatarUrl
-                  console.log(id,logo)
-                  db.collection('user').doc(id).update({
+                  wx.cloud.callFunction({
+                    name: 'updatelogo',
                     data: {
-                      user_name: 'fff'
-                    }, success(res) {
+                      id: id,
+                      logo: logo,
+                      openid: app.globalData.openid
+                    },
+                    complete: res => {
                       console.log(res)
                     }
                   })
                   
                   // console.log(this.data.userInfo)
                   // 将用户信息存在本地  保持登录状态
-                  // wx.setStorageSync('userinfo', that.data.userInfo)
-                  // wx.switchTab({
-                  //   url: '/pages/home/home'
-                  // })
+                  wx.setStorageSync('userinfo', that.data.userInfo)
+                  wx.switchTab({
+                    url: '/pages/home/home'
+                  })
                 }
               })
             }

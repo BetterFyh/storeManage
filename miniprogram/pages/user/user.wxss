@@ -68,7 +68,7 @@
 }
 .func_list .iconfont{
   text-align: center;
-  width: 50rpx;
+  width: 25px;
 }
 .logout{
   background-color: #f44;
