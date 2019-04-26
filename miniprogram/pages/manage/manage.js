@@ -14,7 +14,11 @@ Page({
   onLoad: function (options) {
 
   },
-
+  addGoods(){
+    wx.navigateTo({
+      url: '/pages/addGoods/addGoods',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

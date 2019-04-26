@@ -1,1 +1,25 @@
 /* miniprogram/pages/manage/manage.wxss */
+.list{
+  width: 100%;
+  font-size: 24rpx;
+}
+.list>view{
+  float: left;
+  height: 200rpx;
+  width: 250rpx;
+  text-align: center;
+  font-size:24rpx;
+  padding-top: 55rpx;
+  color: #909090;
+  box-sizing: border-box;
+  border-right: 1rpx solid #e3e3e3;
+  border-bottom: 1rpx solid #e3e3e3; 
+}
+.list>view:nth-child(3n){
+  border-right: 0;
+}
+
+.list>view>view{
+  font-size: 40rpx;
+  margin-bottom: 30rpx;
+}

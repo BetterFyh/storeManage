@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "Select": "../../componet/select/index"
+  }
+}

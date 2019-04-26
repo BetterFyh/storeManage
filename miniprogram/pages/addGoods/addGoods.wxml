@@ -1,0 +1,4 @@
+<!--miniprogram/pages/addGoods/addGoods.wxml-->
+<view class="section">
+ <Select prop-array='{{selectArray}}' bind:myevent="click"></Select> 
+</view>

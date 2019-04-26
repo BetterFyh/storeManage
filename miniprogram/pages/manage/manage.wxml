@@ -1,2 +1,11 @@
 <!--miniprogram/pages/manage/manage.wxml-->
-<text>miniprogram/pages/manage/manage.wxml</text>
+<!-- <view>扫码借出</view>
+<view>新货品入库</view> -->
+<view class='manage'>
+  <view class='list'>
+    <view bindtap='scan'>
+      <view class='iconfont .icon_scan'></view>扫码核销</view>
+    <view bindtap='addGoods'>
+      <view class='iconfont .icon_goodIn'></view>新货品入库</view>
+  </view>
+</view>

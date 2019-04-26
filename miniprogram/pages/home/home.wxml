@@ -1,1 +1,7 @@
 <!--miniprogram/pages/home/home.wxml-->
+<view>货品列表</view>
+<view>
+  <view>
+    
+  </view>
+</view>

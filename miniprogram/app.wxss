@@ -8,12 +8,12 @@
 /* 字体图标库 */
 @font-face {
   font-family: 'iconfont';  /* project id 1159111 */
-  src: url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.eot');
-  src: url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1159111_mrn3nemijoo.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1159111_xfozq184vfs.eot');
+  src: url('//at.alicdn.com/t/font_1159111_xfozq184vfs.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1159111_xfozq184vfs.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1159111_xfozq184vfs.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1159111_xfozq184vfs.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1159111_xfozq184vfs.svg#iconfont') format('svg');
 }
 .iconfont {
     font-family: "iconfont" !important;
@@ -32,4 +32,8 @@
 .icon_record::before{ content: '\e600'}
 .icon_add::before{ content: '\e601'; color: #333; font-size: 18px;}
 .icon_query::before{ content:  '\e61c'; color: #333; font-size: 18px;}
+.icon_goodIn::before{ content: '\e606'}
+.icon_scan::before{ content: '\e615'}
+
+
 

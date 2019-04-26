@@ -1,2 +1,24 @@
 <!--miniprogram/pages/user/addUser.wxml-->
-<text>miniprogram/pages/user/addUser.wxml</text>
+<view class='add-page'>
+  <view class='login'>
+    <form>
+      <view class='user'>
+        <label>账号</label>
+        <input type="text" placeholder="请输入系统管理账号" bindinput='accountInput'></input>
+      </view>
+      <view class='pwd'>
+        <label>密码</label>
+        <input password type="text" placeholder='请输入密码' bindinput='pwdInput'></input>
+      </view>
+      <view class='user'>
+        <label>确认密码</label>
+        <input password type="text" placeholder="请确认密码" bindinput='secondPwdInput'></input>
+      </view>
+      <view class='user'>
+        <label>手机号</label>
+        <input type="text" placeholder="请绑定手机号" bindinput='phoneInput'></input>
+      </view>
+      <button bindtap='add'>确认添加</button>
+    </form>
+  </view>
+</view>

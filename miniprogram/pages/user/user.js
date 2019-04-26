@@ -40,7 +40,16 @@ Page({
   },
   // 超级管理员才能添加管理员
   addManage(){
-
+    // console.log(this.data.userInfo.user_level);
+    if (this.data.userInfo.user_level === 999){
+      wx.navigateTo({
+        url: '/pages/user/addUser'
+      })
+    }else{
+      wx.showToast({
+        title: '您没有该权限!',
+      })
+    }
   },
   // 查看所有管理
   queryManage(){

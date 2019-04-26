@@ -1,4 +1,4 @@
-// miniprogram/pages/home/home.js
+// miniprogram/pages/addGoods/addGoods.js
 const app = getApp()
 Page({
 
@@ -6,33 +6,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    selectArray: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (!wx.getStorageSync('userinfo')){
-      wx.showToast({
-        title: '请先登录!',
-        icon: 'none',
-        image: '../../images/icon_http_error.png',
-        mask: true
+    // this.click(options)
+    const that = this
+    const db = wx.cloud.database()
+    db.collection('category').get().then(res => {
+      that.setData({
+        selectArray: res.data
       })
-      wx.redirectTo({
-        url: '/pages/login/login',
-      })
-    }else{
-      // console.log(wx.getStorageSync('userinfo'))
-      const db = wx.cloud.database()
-      db.collection('goods').get().then(res => {
-        console.log(res);
-      })
-    }
-     
+    })
   },
-
+  // 随机生成永不重复的id  9位16进制
+  uuid() {
+    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+    var uuid = [];
+    // i;
+    for (var i = 0; i < 9; i++) {
+      uuid[i] = chars[0 | Math.random() * 16];
+    }
+    return uuid.join('');
+  },
+  click(e){
+    console.log(e.detail.id)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

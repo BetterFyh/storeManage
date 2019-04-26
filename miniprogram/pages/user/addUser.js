@@ -1,11 +1,15 @@
 // miniprogram/pages/user/addUser.js
+var util = require('../../util/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    username: '',
+    pwd: '',
+    secondPwd: '',
+    phone: ''
   },
 
   /**
@@ -14,7 +18,83 @@ Page({
   onLoad: function (options) {
 
   },
-
+  accountInput: function (e) {
+    this.setData({
+      username: e.detail.value
+    })
+  },
+  pwdInput: function (e) {
+    this.setData({
+      pwd: e.detail.value
+    })
+  },
+  secondPwdInput: function(e){
+    this.setData({
+      secondPwd: e.detail.value
+    })
+  },
+  phoneInput: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  add(){
+    let isPhone = util.isCheckMobile(this.data.phone);
+    if (!this.data.username || !this.data.pwd || !this.data.secondPwd || !this.data.phone){
+      wx.showToast({
+        title: '请填写全部信息',
+        icon: 'none',
+        image: '../../images/icon_http_error.png'
+      })
+    } else if (this.data.pwd.length < 6){
+      wx.showToast({
+        title: '密码长度须>6',
+        icon: 'none',
+        image: '../../images/icon_http_error.png'
+      })
+    }else if (this.data.pwd != this.data.secondPwd){
+      wx.showToast({
+        title: '密码不一致',
+        icon: 'none',
+        image: '../../images/icon_http_error.png'
+      })
+    } else if (!isPhone) {
+      console.log(this.data.phone)
+      console.log(isPhone)
+      wx.showToast({
+        title: '手机号格式错误',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+    }else{
+      let that = this;
+      wx.showModal({
+        title: '操作确认',
+        content: '确认添加【' + this.data.username +'】为管理员?',
+        success(res) {
+          if (res.confirm) {
+            // console.log('用户点击确定')
+            wx.cloud.callFunction({
+              name: 'addUser',
+              data: {
+                username: that.data.username,
+                pwd: that.data.pwd,
+                phone: that.data.pwd
+              },
+              complete: res => {
+                // console.log('云函数获取到的openid: ', res.result.userInfo.openId)
+                console.log(res)
+              }
+            })
+          } else if (res.cancel) {
+            console.log('取消添加!')
+          }
+        }
+      })
+    }
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

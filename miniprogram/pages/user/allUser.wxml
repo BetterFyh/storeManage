@@ -1,7 +1,7 @@
 <!--miniprogram/pages/user/allUser.wxml-->
 <view class='page'>
   <view wx:for="{{userList}}" class='page-list' wx:key="index">
-    <view class='logo' style="background-image: url({{item.user_logo}})"></view>
+    <view class='logo' style="background-image: url({{item.user_logo || 'http://img2.imgtn.bdimg.com/it/u=666867949,2875120027&fm=200&gp=0.jpg'}}) "></view>
     <view class='name'>{{item.user_name}}</view>
     <view class='info'>{{item.levelInfo}}</view>
   </view>

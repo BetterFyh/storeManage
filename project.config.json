@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -53,7 +53,25 @@
 				{
 					"id": -1,
 					"name": "所有管理",
-					"pathName": "pages/user/allUser"
+					"pathName": "pages/user/allUser",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加管理",
+					"pathName": "pages/user/addUser",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "功能管理",
+					"pathName": "pages/manage/manage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新品入库",
+					"pathName": "pages/addGoods/addGoods"
 				}
 			]
 		}

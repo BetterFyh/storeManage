@@ -1,5 +1,5 @@
 <!--miniprogram/pages/login/login.wxml-->
-<view class='page' style="background-image: url('../../images/background.png')">
+<view class='page' style="background-image: url('https://7374-storemange-7be934-1259027697.tcb.qcloud.la/images/background.png?sign=67d6ab3b7276995700ba3495589c6db7&t=1556246446')">
   <view class='login'>
     <form>
       <view class='user'>
