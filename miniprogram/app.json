@@ -9,7 +9,8 @@
     "pages/order/orderInfo",
     "pages/user/addUser",
     "pages/user/allUser",
-    "pages/addGoods/addGoods"
+    "pages/addGoods/addGoods",
+    "pages/manage/addCategory/addCategory"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

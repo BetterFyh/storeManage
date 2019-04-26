@@ -19,6 +19,11 @@ Page({
       url: '/pages/addGoods/addGoods',
     })
   },
+  addCategory(){
+    wx.navigateTo({
+      url: '/pages/manage/addCategory/addCategory'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

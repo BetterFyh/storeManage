@@ -1,0 +1,8 @@
+<!--miniprogram/pages/manage/addCategory/addCategory.wxml-->
+<view>
+  <view class='addCate'>
+    <label>类别名称</label>
+    <input type="text" placeholder="请输入名称" bindinput='categoryInput'></input>
+  </view>
+  <button bindtap='add'>确认添加</button>
+</view>

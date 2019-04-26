@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: 'fyh',
-    pwd: '123456',
+    username: '',
+    pwd: '',
     openid: '',
     userInfo: {}
   },

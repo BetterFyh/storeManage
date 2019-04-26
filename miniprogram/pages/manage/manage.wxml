@@ -7,5 +7,7 @@
       <view class='iconfont .icon_scan'></view>扫码核销</view>
     <view bindtap='addGoods'>
       <view class='iconfont .icon_goodIn'></view>新货品入库</view>
+      <view bindtap='addCategory'>
+      <view class='iconfont .icon_addCate'></view>添加货品类别</view>
   </view>
 </view>
