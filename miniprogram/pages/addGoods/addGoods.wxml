@@ -1,4 +1,24 @@
 <!--miniprogram/pages/addGoods/addGoods.wxml-->
-<view class="section">
- <Select prop-array='{{selectArray}}' bind:myevent="click"></Select> 
+<view>
+  <view class="section">
+    <view class='name'>货品类别</view>
+    <Select class="sec" prop-array='{{selectArray}}' bind:myevent="click"></Select>
+  </view>
+  <view class='user'>
+    <label>货品名称</label>
+    <input type="text" placeholder='请输入名称' bindinput='nameInput'></input>
+  </view>
+  <view class='user'>
+    <label>货品数量</label>
+    <input type="number" placeholder='请输入数量' bindinput='numInput'></input>
+  </view>
+  <view class='title'>
+    <view class='logo'>货品图片</view>
+    <view class='clear' wx:if="{{imagePath}}" bindtap='upImage'>更换图片</view>
+  </view>
+  <view class='upImage' bindtap='upImage'>
+    <view class='add iconfont icon_addCate' wx:if="{{!imagePath}}"></view>
+    <view class='img' wx:if="{{imagePath}}" style='background-image: url({{imagePath}})'></view>
+  </view>
+  <button bindtap='confirm'>确认入库</button>
 </view>

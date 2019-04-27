@@ -1,1 +1,87 @@
 /* miniprogram/pages/addGoods/addGoods.wxss */
+page{
+  background-color: #e9e9e9;
+}
+.section{
+  display: flex;
+  line-height: 32px;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #e7e7e7;  
+  background-color: #fff;
+}
+.section .name{
+  /* padding: 0 20rpx; */
+  text-align: center;
+  min-width: 30%;
+}
+.section .sec{
+  min-width: 70%;
+}
+.user {
+  margin-top: 30rpx;
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+
+.user label {
+  min-width: 30%;
+  text-align: center;
+  line-height: 90rpx;
+}
+
+.user input {
+  height: 100%;
+  width: 80%;
+  line-height: 90rpx;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+}
+.logo{
+  width: 30%;
+  text-align: center;
+  padding: 20rpx 0;
+  color: #333;
+  font-size: 16px;
+}
+.clear{
+  width: 20%;
+  text-align: center;
+  font-size: 12px;
+  height: 100%;
+  padding: 28rpx 0;
+}
+.upImage{
+  /* margin-top: 30rpx; */
+  background-color: #fff;
+  height: 400rpx;
+  width: 750rpx;
+}
+.add{
+  width: 300rpx;
+  height: 300rpx;
+  line-height: 300rpx;
+  text-align: center;
+  padding: 50rpx 225rpx;
+  font-size: 80px;
+  color: #999;
+}
+.img{
+  width: 300rpx;
+  height: 300rpx;
+  padding: 50rpx 225rpx;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+button {
+  margin: 100rpx auto;
+  background: #09ba07;
+  width: 80%;
+  color: #fff;
+}

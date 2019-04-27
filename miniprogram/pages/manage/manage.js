@@ -24,6 +24,16 @@ Page({
       url: '/pages/manage/addCategory/addCategory'
     })
   },
+  // 扫码进入货品详情页
+  scan(){
+    wx.scanCode({
+      onlyFromCamera: true,
+      success(res) {
+        // 货品id 
+        console.log(res.result)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
