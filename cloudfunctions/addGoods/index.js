@@ -15,7 +15,8 @@ exports.main = async (event, context) => {
         level: 1,
         list: event.list,
         logo: event.logo,
-        name: event.name
+        name: event.name,
+        qrCodeLogo: event.qrCodeLogo
       }
     })
   } catch (e) {

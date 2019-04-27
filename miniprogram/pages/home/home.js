@@ -1,4 +1,5 @@
 // miniprogram/pages/home/home.js
+
 const app = getApp()
 Page({
 
@@ -6,14 +7,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (!wx.getStorageSync('userinfo')){
+    
+    if (!wx.getStorageSync('userinfo')) {
       wx.showToast({
         title: '请先登录!',
         icon: 'none',
@@ -23,16 +25,15 @@ Page({
       wx.redirectTo({
         url: '/pages/login/login',
       })
-    }else{
+    } else {
       // console.log(wx.getStorageSync('userinfo'))
       const db = wx.cloud.database()
       db.collection('goods').get().then(res => {
         console.log(res);
       })
     }
-     
-  },
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

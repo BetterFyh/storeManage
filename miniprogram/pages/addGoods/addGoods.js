@@ -1,4 +1,5 @@
 // miniprogram/pages/addGoods/addGoods.js
+let QRCode = require('../../util/qrcode.js')
 const app = getApp()
 Page({
 
@@ -10,7 +11,10 @@ Page({
     imagePath: '',
     name: '',
     num: 0,
-    cateId: ''
+    cateId: '',
+    canvasHidden: false,
+    qeCordPath: [],
+    list: []
   },
 
   /**
@@ -69,17 +73,19 @@ Page({
         mask: true
       })
     } else {
-      var list = []
+      // var list = []
       for (var i = 0; i < this.data.num; i++) {
         var id = this.uuid();
-        var obj = {
-          id: id,
-          isStork: 1,
-          info: '全新'
-        }
-        list.push(obj)
+        var size = this.setCanvasSize()
+        console.log(size);
+        this.createQrCode(id, "mycanvas", size.w, size.h); 
+        // var path = this.data.qeCordPath
+        // console.log(path)
+        // console.log(qrCodeLogo)
+       
+
       }
-      // console.log(list)
+      console.log(that.data.list)
       wx.showLoading({
         title: '入库中...',
         mask: true
@@ -92,6 +98,7 @@ Page({
         // 成功回调
         success: res => {
           // console.log('上传成功', res)
+          // console.log(list)
           that.setData({
             imagePath: 'https://7374-storemange-7be934-1259027697.tcb.qcloud.la/goodsLogo/' + that.data.name + '.jpg'
           })
@@ -99,7 +106,7 @@ Page({
             name: 'addGoods',
             data: {
               id: that.data.cateId,
-              list: list,
+              list: that.data.list,
               logo: that.data.imagePath,
               name: that.data.name
             },
@@ -134,6 +141,67 @@ Page({
     this.setData({
       num: e.detail.value
     })
+  },
+  setCanvasSize: function () {
+    var size = {};
+    try {
+      var res = wx.getSystemInfoSync();
+      var scale = 750 / 686; //不同屏幕下canvas的适配比例；设计稿是750宽 686是因为样式wxss文件中设置的大小
+      var width = res.windowWidth / scale;
+      var height = width; //canvas画布为正方形
+      size.w = width;
+      size.h = height;
+    } catch (e) {
+      // Do something when catch error
+      console.log("获取设备信息失败" + e);
+    }
+    return size;
+  },
+  /**
+   * 绘制二维码图片
+   */
+  createQrCode: function(url, canvasId, cavW, cavH) {
+    //调用插件中的draw方法，绘制二维码图片
+    QRCode.api.draw(url, canvasId, cavW, cavH);
+    setTimeout(() => {
+      this.canvasToTempImage(url);
+    }, 1000);
+  },
+  /**
+   * 获取临时缓存照片路径，存入data中
+   */
+  canvasToTempImage: function(id) {
+    var that = this;
+    var path = ''
+    //把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径。
+    wx.canvasToTempFilePath({
+      canvasId: 'mycanvas',
+      success: function(res) {
+        var tempFilePath = res.tempFilePath;
+        that.setData({
+          qeCordPath: tempFilePath
+        });
+       
+        wx.cloud.uploadFile({
+          cloudPath: 'Qrcode/' + that.data.name + id + '.png',
+          // 指定要上传的文件的小程序临时文件路径
+          filePath: that.data.qeCordPath,
+          success: res => {
+            var obj = {
+              id: id,
+              isStork: 1,
+              qrCodeLogo: 'https://7374-storemange-7be934-1259027697.tcb.qcloud.la/Qrcode/' + that.data.name + id + '.png',
+              info: '全新'
+            }
+            that.data.list.push(obj)
+          }
+        })
+        console.log(that.data.list)
+      },
+      fail: function(res) {
+        console.log(res);
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

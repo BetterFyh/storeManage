@@ -1,7 +1,6 @@
 <!--miniprogram/pages/home/home.wxml-->
-<view>货品列表</view>
-<view>
-  <view>
-    
-  </view>
+<!-- <view>货品列表</view> -->
+<view class='container'>
+  <image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>
 </view>
+<!-- 画布，用来画二维码，只用来站位，不用来显示-->

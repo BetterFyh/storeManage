@@ -85,3 +85,8 @@ button {
   width: 80%;
   color: #fff;
 }
+.canvas-box {
+  position: fixed;
+  top: 999999rpx;
+  left: 0;
+}

@@ -22,3 +22,6 @@
   </view>
   <button bindtap='confirm'>确认入库</button>
 </view>
+<view class="canvas-box">
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas" />
+</view>
