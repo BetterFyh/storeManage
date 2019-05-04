@@ -1,0 +1,9 @@
+<!--miniprogram/pages/home/detail/detail.wxml-->
+<view>
+  <view class='img' style='background-image: url({{goodList.logo}})'></view>
+  <view wx:if="{{good.isStork}}" class='info'>状态：在库</view>
+  <view wx:if="{{!good.isStork}}" class='info'>状态：不在库</view>
+  <view class='info'>编号：{{good.id}}</view>
+  <view class='qrcode' style='background-image: url({{good.qrCodeLogo}})'></view>
+  <view class='btn' bindtap='confirm'>确认借出</view>
+</view>

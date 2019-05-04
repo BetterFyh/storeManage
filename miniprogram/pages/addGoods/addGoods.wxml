@@ -23,5 +23,14 @@
   <button bindtap='confirm'>确认入库</button>
 </view>
 <view class="canvas-box">
-  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas0" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas1" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas2" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas3" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas4" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas5" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas6" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas7" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas8" />
+  <canvas hidden="{{false}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas9" />
 </view>

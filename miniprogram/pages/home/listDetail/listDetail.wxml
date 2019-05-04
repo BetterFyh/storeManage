@@ -1,0 +1,26 @@
+<!--miniprogram/pages/home/listDetail/listDetail.wxml-->
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#ff4444" indicator-color="rgba(255, 255, 255, .8)" circular="{{true}}">
+    <block wx:for="{{goodList}}" class="swiper" wx:key="index">
+      <swiper-item>
+        <view class="item_img" style="background-image: url({{item.logo}})"></view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='info'>
+    <view class='line6'>{{goodList[0].name}}</view>
+    <view class='font12 graytext' style='display: flex;justify-content: space-between;padding: 10rpx 0'>
+    <view>库存 {{goodList[0].list.length}}</view>  
+    <view class='font12 graytext'>已借出 {{goodList[0].list.length - inList.length}}</view>
+    <view class='font12 graytext'>剩余在库 {{inList.length}}</view>
+    </view>
+    
+  </view>
+  <view class='list'>
+    <view class='item' wx:for="{{goodList[0].list}}" wx:key="index">
+      <view class='num'>编号:{{item.id}}</view>
+      <view class='btn' wx:if="{{item.isStork}}" bindtap='toBorw' data-id="{{item.id}}">借出</view>
+      <view class='nobtn' wx:if="{{!item.isStork}}">已借出</view>
+    </view>
+  </view>
+</view>

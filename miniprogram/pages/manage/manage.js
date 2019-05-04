@@ -31,6 +31,9 @@ Page({
       success(res) {
         // 货品id 
         console.log(res.result)
+        wx.navigateTo({
+          url: '/pages/home/detail/detail?id=' + res.result
+        })
       }
     })
   },

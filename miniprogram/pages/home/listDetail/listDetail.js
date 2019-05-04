@@ -1,5 +1,4 @@
-// miniprogram/pages/home/home.js
-
+// miniprogram/pages/home/listDetail/listDetail.js
 const app = getApp()
 Page({
 
@@ -7,38 +6,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsArr: []
+    goodList: null,
+    inList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
-    if (!wx.getStorageSync('userinfo')) {
-      wx.showToast({
-        title: '请先登录!',
-        icon: 'none',
-        image: '../../images/icon_http_error.png',
-        mask: true
+    // console.log(options)
+    var id = options.id
+    const db = wx.cloud.database()
+    db.collection('goods').where({
+      _id: id
+    }).get().then(res => {
+      // console.log(res)
+      this.setData({
+        goodList: res.data
       })
-      wx.redirectTo({
-        url: '/pages/login/login',
+      var list = this.data.goodList[0].list
+      // var inList = []
+      // console.log(list)
+      var inList = list.filter(item=>{
+        return item.isStork > 0
       })
-    } else {
-      // console.log(wx.getStorageSync('userinfo'))
-      const db = wx.cloud.database()
-      db.collection('goods').get().then(res => {
-        // console.log(res)
-        if(res.data){
-          this.setData({
-            goodsArr: res.data
-          })
-        }
-        
+      // console.log(inList)
+      this.setData({
+        inList: inList
       })
-    }
-
+    })
+  },
+  // 借出
+  toBorw(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../detail/detail?id=' + e.currentTarget.dataset.id
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,44 @@
+/* miniprogram/pages/home/listDetail/listDetail.wxss */
+swiper{
+  height: 500rpx !important;
+}
+.item_img{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.info{
+  background-color: #fff;
+  border-bottom: 5px solid #eee;
+  padding: 20rpx;
+  font-size: 14px;
+  color: #333;
+}
+
+.list{
+  width: 750rpx;
+}
+.item{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  font-size: 14px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.num{
+  padding: 10rpx 20rpx;
+}
+.btn{
+  background-color: #09bb07;
+  color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 10%;
+}
+.nobtn{
+  background-color: #eee;
+  color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 10%;
+}

@@ -14,7 +14,8 @@ Page({
     cateId: '',
     canvasHidden: false,
     qeCordPath: [],
-    list: []
+    list: [],
+    uuidList: []
   },
 
   /**
@@ -64,7 +65,7 @@ Page({
   },
   // 确认入库
   confirm() {
-    let that = this
+    var that = this
     if (!this.data.cateId || !this.data.name || !this.data.num || !this.data.imagePath) {
       wx.showToast({
         title: '请填写完整信息',
@@ -74,56 +75,27 @@ Page({
       })
     } else {
       // var list = []
-      for (var i = 0; i < this.data.num; i++) {
-        var id = this.uuid();
-        var size = this.setCanvasSize()
-        console.log(size);
-        this.createQrCode(id, "mycanvas", size.w, size.h); 
-        // var path = this.data.qeCordPath
-        // console.log(path)
-        // console.log(qrCodeLogo)
-       
-
-      }
-      console.log(that.data.list)
       wx.showLoading({
         title: '入库中...',
         mask: true
       })
-      wx.cloud.uploadFile({
-        // 指定上传到的云路径
-        cloudPath: 'goodsLogo/' + that.data.name + '.jpg',
-        // 指定要上传的文件的小程序临时文件路径
-        filePath: that.data.imagePath,
-        // 成功回调
-        success: res => {
-          // console.log('上传成功', res)
-          // console.log(list)
-          that.setData({
-            imagePath: 'https://7374-storemange-7be934-1259027697.tcb.qcloud.la/goodsLogo/' + that.data.name + '.jpg'
-          })
-          wx.cloud.callFunction({
-            name: 'addGoods',
-            data: {
-              id: that.data.cateId,
-              list: that.data.list,
-              logo: that.data.imagePath,
-              name: that.data.name
-            },
-            complete: res => {
-              console.log(res)
-              wx.showToast({
-                title: '入库成功'
-              })
-              wx.hideLoading()
-              wx.switchTab({
-                url: '/pages/manage/manage'
-              })
-            }
-          })
+      for (let i = 0; i < this.data.num; i++) {
+        var id = this.uuid();
+        var idList = this.data.uuidList
+        idList.push(id)
+        this.setData({
+          uuidList: idList
+        })
+      }
+      for (let j = 0; j < this.data.uuidList.length; j++) {
+        var size = this.setCanvasSize()
+        this.createQrCode(this.data.uuidList[j], "mycanvas" + j, size.w, size.h, j);
+      }
+      this.canvasToTempImage(this.data.uuidList);
+      // console.log(that.data.list)
+      
+      // console.log(that.data.list)
 
-        },
-      })
       // wx.showToast({
       //   title: '完美'
 
@@ -142,7 +114,7 @@ Page({
       num: e.detail.value
     })
   },
-  setCanvasSize: function () {
+  setCanvasSize: function() {
     var size = {};
     try {
       var res = wx.getSystemInfoSync();
@@ -160,43 +132,100 @@ Page({
   /**
    * 绘制二维码图片
    */
-  createQrCode: function(url, canvasId, cavW, cavH) {
+  createQrCode: function(url, canvasId, cavW, cavH, index) {
     //调用插件中的draw方法，绘制二维码图片
     QRCode.api.draw(url, canvasId, cavW, cavH);
-    setTimeout(() => {
-      this.canvasToTempImage(url);
-    }, 1000);
+    // setTimeout(() => {
+    // this.canvasToTempImage(url, canvasId);
+    // }, 1000);
   },
   /**
    * 获取临时缓存照片路径，存入data中
    */
-  canvasToTempImage: function(id) {
+  canvasToTempImage: function(list) {
     var that = this;
-    var path = ''
+    var len = list.length
+    var listArr = list
+    var obj = listArr.shift()
     //把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径。
     wx.canvasToTempFilePath({
-      canvasId: 'mycanvas',
+      canvasId: 'mycanvas' + that.data.list.length,
       success: function(res) {
+        
+        console.log(len, listArr.length)
         var tempFilePath = res.tempFilePath;
-        that.setData({
-          qeCordPath: tempFilePath
-        });
-       
+        console.log(tempFilePath)
+        // var qeCordPath = that.data.qeCordPath
+        // qeCordPath.push(tempFilePath)
+        // that.setData({
+        //   qeCordPath: qeCordPath
+        // });
         wx.cloud.uploadFile({
-          cloudPath: 'Qrcode/' + that.data.name + id + '.png',
+          cloudPath: 'Qrcode/' + that.data.name + obj + '.png',
           // 指定要上传的文件的小程序临时文件路径
-          filePath: that.data.qeCordPath,
+          filePath: tempFilePath,
           success: res => {
-            var obj = {
-              id: id,
+            console.log(res, '上传成功')
+            var tempObj = {
+              id: obj,
               isStork: 1,
-              qrCodeLogo: 'https://7374-storemange-7be934-1259027697.tcb.qcloud.la/Qrcode/' + that.data.name + id + '.png',
+              index: that.data.list.length,
+              qrCodeLogo: 'https://7374-storemange-7be934-1259027697.tcb.qcloud.la/Qrcode/' + that.data.name + obj + '.png',
               info: '全新'
             }
-            that.data.list.push(obj)
+            var list = that.data.list
+            console.log(tempObj)
+            list.push(tempObj)
+            that.setData({
+              list: list
+            })
+            console.log('00')
+            if (listArr.length <= 0) {
+              console.log(11)
+              
+              wx.cloud.uploadFile({
+                // 指定上传到的云路径
+                cloudPath: 'goodsLogo/' + that.data.name + '.jpg',
+                // 指定要上传的文件的小程序临时文件路径
+                filePath: that.data.imagePath,
+                // 成功回调
+                success: res => {
+                  // console.log('上传成功', res)
+                  // console.log(that.data.list)
+                  that.setData({
+                    imagePath: 'https://7374-storemange-7be934-1259027697.tcb.qcloud.la/goodsLogo/' + that.data.name + '.jpg'
+                  })
+                  wx.cloud.callFunction({
+                    name: 'addGoods',
+                    data: {
+                      id: that.data.cateId,
+                      list: that.data.list,
+                      logo: that.data.imagePath,
+                      name: that.data.name
+                    },
+                    complete: res => {
+                      console.log(res)
+                      wx.showToast({
+                        title: '入库成功'
+                      })
+                      wx.hideLoading()
+                      wx.switchTab({
+                        url: '/pages/manage/manage'
+                      })
+                    }
+                  })
+
+                },
+              })
+            } else {
+              console.log(222)
+              that.canvasToTempImage(listArr);
+            }
+
           }
         })
-        console.log(that.data.list)
+
+        // console.log(that.data.list)
       },
       fail: function(res) {
         console.log(res);

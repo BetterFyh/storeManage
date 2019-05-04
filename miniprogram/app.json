@@ -10,7 +10,9 @@
     "pages/user/addUser",
     "pages/user/allUser",
     "pages/addGoods/addGoods",
-    "pages/manage/addCategory/addCategory"
+    "pages/manage/addCategory/addCategory",
+    "pages/home/detail/detail",
+    "pages/home/listDetail/listDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

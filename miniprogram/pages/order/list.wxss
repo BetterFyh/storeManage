@@ -31,3 +31,53 @@ page{
   color: #09bb07;
   border-bottom: 2px solid #09bb07; 
 }
+.list{
+  margin-top: 80rpx;
+  width: 750rpx;
+}
+.item{
+  background-color: #fff;
+  margin-bottom: 5px;
+  
+}
+.up{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9e9e9;
+  padding: 30rpx;
+  font-size: 14px;
+}
+.img{
+  width: 140rpx;
+  height: 140rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.content{
+  width: 500rpx;
+  color: #333;
+}
+.msg{
+  padding-bottom: 6rpx;
+}
+.msg text{
+  padding-right: 20px;
+}
+.down{
+  display: flex;
+  justify-content: flex-end;
+  padding: 14rpx 30rpx;
+  font-size: 14px;
+}
+.down view{
+  color: #fff;
+  padding: 6rpx 18rpx;
+  margin-right: 30rpx;
+  border-radius: 10rpx;
+  background-color: #09bb07;
+}
+.number{
+  padding-left: 30rpx;
+  font-size: 12px;
+}
