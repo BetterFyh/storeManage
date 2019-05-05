@@ -8,20 +8,26 @@ Page({
    */
   data: {
     good: {},
-    goodList: {}
+    goodList: {},
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if (wx.getStorageSync('userinfo')){
+      this.setData({
+        userInfo: wx.getStorageSync('userinfo')
+      })
+    }
     var id = options.id
-    console.log(id)
+    // console.log(id)
     const db = wx.cloud.database()
     db.collection('goods').where({
       'list.id': id
     }).get().then(res => {
-      console.log(res)
+      // console.log(res)
       var list = res.data[0].list
       var good = list.filter(item => {
         return item.id == id
@@ -43,15 +49,15 @@ Page({
         success: res => {
           const db = wx.cloud.database()
           db.collection('goods').where({
-            'list.id': id
+            'list.id': that.data.good.id
           }).get().then(res => {
-            console.log(res)
+            // console.log(res)
             var list = res.data[0].list
             var good = list.filter(item => {
-              return item.id == id
+              return item.id == that.data.good.id
             })
-            console.log(good)
-            if(!good.isStork){
+            // console.log(good) 长度为1的数组
+            if(!good[0].isStork){
               wx.showToast({
                 title: '物品已被借出!',
                 mask: true,
@@ -59,9 +65,12 @@ Page({
                 image: '../../../images/icon_http_error.png'
               })
             }else{
-              
+              console.log(that.data.good.id)
             }
           })
+        },fail: res =>{
+          console.log('取消')
+          return
         }
     })
   },

@@ -78,7 +78,15 @@
 					"id": 7,
 					"name": "列表详情",
 					"pathName": "pages/home/listDetail/listDetail",
-					"query": "id=ee3099285cc4820807e6410e63f9d052"
+					"query": "id=ee3099285cc53e55081bbc2472499644",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "借出",
+					"pathName": "pages/home/detail/detail",
+					"query": "id=687CD8DF5",
+					"scene": null
 				}
 			]
 		}
