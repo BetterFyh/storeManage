@@ -9,13 +9,17 @@ Page({
   data: {
     active: 0,
     list: [],
-    goodInfo: {}
+    goodInfo: {},
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      userInfo: wx.getStorageSync('userinfo')
+    })
     wx.showLoading({
       title: '加载中...',
       mask: true
@@ -117,7 +121,9 @@ Page({
         wx.cloud.callFunction({
           name: 'reBack',
           data: {
-            orderId: e.currentTarget.dataset.orderid
+            orderId: e.currentTarget.dataset.orderid,
+            backManager: that.data.userInfo.user_name,
+            backManagerId: that.data.userInfo._id
           }
         }).then(res1 => {
           console.log(res1)
@@ -133,7 +139,7 @@ Page({
           tempArr[0].isStork = 1
           var list = res2.data[0].list;
           list[tempArr[0].index] = tempArr[0]
-          console.log(list)
+          // console.log(list)
           wx.cloud.callFunction({
             name: 'updateStork',
             data: {

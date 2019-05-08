@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    goodInfo: {}
   },
 
   /**
@@ -13,6 +13,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(JSON.parse(options.info))
+    this.setData({
+      goodInfo: JSON.parse(options.info)
+    })
   },
 
   /**

@@ -1,1 +1,34 @@
 /* miniprogram/pages/order/orderInfo.wxss */
+.detail{
+  /* background-color: #e9e9e9; */
+}
+.good{
+  margin: 30rpx 0;
+  background-color: #e9e9e9;
+  width: 750rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  font-size: 14px;
+}
+.logo{
+  width: 180rpx;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.info{
+  width: 550rpx;
+  line-height: 24px;
+}
+.moreInfo{
+  padding: 30rpx;
+  /* background-color: #e9e9e9; */
+}
+.title{
+  font-size: 16px;
+  padding: 16rpx 30rpx;
+  background-color: #e9e9e9;
+  border-bottom: 4px solid #fff;
+}

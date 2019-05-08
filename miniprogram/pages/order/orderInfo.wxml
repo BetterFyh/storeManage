@@ -1,2 +1,24 @@
 <!--miniprogram/pages/order/orderInfo.wxml-->
-<text>miniprogram/pages/order/orderInfo.wxml</text>
+<view class='detail'>
+  <view class='good'>
+    <view class='logo' style='background-image: url({{goodInfo.goodInfo.logo}})'></view>
+    <view class='info'>
+      <view>名称：{{goodInfo.goodInfo.name}}</view>
+      <view>编号：{{goodInfo.goodInfo.list[0].id}}</view>
+      <view wx:if="{{goodInfo.status == 1}}">状态：待归还</view>
+      <view wx:if="{{goodInfo.status == 2}}">状态：已归还</view>
+    </view>
+  </view>
+  <view class='title'>详细信息</view>
+  <view class='moreInfo'>
+    <view>借物人：{{goodInfo.borrower}}</view>
+    <view>借物手机号：{{goodInfo.borrowerPhone}}</view>
+    <view>借物时间：{{goodInfo.time}}</view>
+    <view wx:if="{{goodInfo.backTime}}">还物时间：{{goodInfo.backTime}}</view>
+    <view wx:if="{{!goodInfo.backTime}}">还物时间：待归还</view>
+    <view>借物管理：{{goodInfo.manager}}</view>
+    <view wx:if="{{goodInfo.backManager}}">收物管理：{{goodInfo.backManager}}</view>
+    <view wx:if="{{!goodInfo.backManager}}">收物管理：待归还</view>
+  </view>
+
+</view>

@@ -12,7 +12,7 @@
         <view class='img' style='background-image: url({{item.goodInfo.logo}})'></view>
         <view class='content'>
           <view class='msg'>{{item.goodInfo.name}}<text class='number'>{{item.goodInfo.list[0].id}}</text></view>
-          <view class='msg'><text>借物人: {{item.borrower}}</text> <text>管理: {{item.manage}}</text></view> 
+          <view class='msg'><text>借物人: {{item.borrower}}</text> <text>管理: {{item.manager}}</text></view> 
           <!-- <view class='msg'>{{item.goodInfo.list[0].id}}</view> -->
           <view class='msg' wx:if="{{item.status == 1}}">状态：待归还</view>
           <view class='msg' wx:if="{{item.status == 2}}">状态：已归还</view>
