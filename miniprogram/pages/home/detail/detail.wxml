@@ -10,7 +10,7 @@
   </view>
   <view class='user'>
     <label>手机号</label>
-    <input password type="text" placeholder='请输入借物人手机号' bindinput='phoneInput'></input>
+    <input type="text" placeholder='请输入借物人手机号' bindinput='phoneInput'></input>
   </view>
   <view class='qrcode' style='background-image: url({{good.qrCodeLogo}})'></view>
   <view class='btn' bindtap='confirm'>确认借出</view>

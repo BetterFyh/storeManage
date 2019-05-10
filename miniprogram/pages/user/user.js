@@ -41,7 +41,7 @@ Page({
   // 超级管理员才能添加管理员
   addManage(){
     // console.log(this.data.userInfo.user_level);
-    if (this.data.userInfo.user_level === 999){
+    if (this.data.userInfo.user_level == 999){
       wx.navigateTo({
         url: '/pages/user/addUser'
       })

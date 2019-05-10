@@ -32,3 +32,11 @@
   text-align: center;
   margin-top: 50px;
 }
+.flash{
+  height: 40px;
+  font-size: 14px;
+  line-height: 40px;
+  color: #09bb07;
+  text-align: center;
+  margin-top: 50px;
+}

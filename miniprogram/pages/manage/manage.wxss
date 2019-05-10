@@ -3,20 +3,27 @@
   width: 100%;
   font-size: 24rpx;
 }
+.list .iconfont{
+  font-size:24px;
+  color: #fff;
+}
 .list>view{
-  float: left;
-  height: 200rpx;
-  width: 250rpx;
+  /* float: left; */
+  height: 260rpx;
+  background: linear-gradient(to right, #00fcd2 , #42d140);
+  margin-bottom: 10rpx;
+  /* width: 250rpx; */
   text-align: center;
-  font-size:24rpx;
-  padding-top: 55rpx;
-  color: #909090;
+  font-size:20px;
+  padding-top: 65rpx;
+  /* color: #909090; */
+  color: #fff;
   box-sizing: border-box;
-  border-right: 1rpx solid #e3e3e3;
-  border-bottom: 1rpx solid #e3e3e3; 
+  /* border-right: 1rpx solid #e3e3e3; */
+  /* border-bottom: 1rpx solid #e3e3e3;  */
 }
 .list>view:nth-child(3n){
-  border-right: 0;
+  /* border-right: 0; */
 }
 
 .list>view>view{

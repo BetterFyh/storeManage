@@ -78,8 +78,8 @@ Page({
                     mask: true
                   })
                   // 第一次登陆才绑定头像和openid
-                  if (!that.data.userInfo.openid){
-                    var id = res.data[0]._id
+                  // if (!that.data.userInfo.openid){
+                    var id = res.data[0]._id                                                
                     var logo = result.userInfo.avatarUrl
                     wx.cloud.callFunction({
                       name: 'updatelogo',
@@ -92,7 +92,7 @@ Page({
                         console.log(res)
                       }
                     })
-                  }
+                  // }
                   
                   
                   // console.log(this.data.userInfo)

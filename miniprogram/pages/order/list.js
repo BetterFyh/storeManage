@@ -152,13 +152,16 @@ Page({
         })
 
         wx.showToast({
-          title: '归还成功'
+          title: '归还成功!'
         })
-        wx.hideLoading()
+        // wx.hideLoading()
         console.log('确认归还')
-        wx.switchTab({
-          url: '/pages/user/user'
-        })
+        setTimeout(function(){
+          wx.switchTab({
+            url: '/pages/user/user'
+          })
+        },1000)
+       
       },
       fail: res => {
         return;

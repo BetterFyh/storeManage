@@ -75,12 +75,27 @@ Page({
         success(res) {
           if (res.confirm) {
             // console.log('用户点击确定')
+            wx.showLoading({
+              title: '添加中...'
+            })
             wx.cloud.callFunction({
               name: 'addUser',
               data: {
                 username: that.data.username,
                 pwd: that.data.pwd,
                 phone: that.data.pwd
+              },success: res =>{
+                wx.showToast({
+                  title: '添加成功!',
+                  duration: 2000,
+                  mask: true
+                })
+                setTimeout(function(){
+                  wx.switchTab({
+                    url: '/pages/user/user'
+                  })
+                }, 1000)
+                
               },
               complete: res => {
                 // console.log('云函数获取到的openid: ', res.result.userInfo.openId)

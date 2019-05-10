@@ -25,7 +25,7 @@
     </view>
   </view>
   <view class='func_list'>
-    <view wx:if="{{userInfo.user_level === 999}}" class='item' bindtap='addManage'>
+    <view wx:if="{{userInfo.user_level == 999}}" class='item' bindtap='addManage'>
       <view class='iconfont icon_add'></view>
       <view>添加管理员</view>
     </view>

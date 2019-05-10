@@ -9,4 +9,5 @@
     </view>
   </navigator>
   <view wx:if="{{!goodsArr.length}}" class='no-goods'>暂无在库货品</view>
+  <view wx:if="{{!goodsArr.length}}" class='flash' bindtap='flash'>刷新</view>
 </view>
